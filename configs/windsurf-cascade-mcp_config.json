@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "wireflow": {
+      "serverUrl": "https://www.wireflow.ai/api/mcp"
+    }
+  }
+}

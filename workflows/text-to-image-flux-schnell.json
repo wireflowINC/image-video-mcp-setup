@@ -1,0 +1,76 @@
+{
+  "name": "Recipe: text to image (Flux Schnell)",
+  "description": "Prompt in, one Flux Schnell image out. From github.com/wireflowINC recipe repos.",
+  "tags": [
+    "recipe",
+    "image"
+  ],
+  "nodes": [
+    {
+      "id": "prompt",
+      "type": "basedNode",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "data": {
+        "label": "Prompt",
+        "nodeType": "input:text",
+        "category": "input",
+        "description": "Describe the image.",
+        "config": {
+          "prompt": "A ceramic coffee mug on a pale oak table by a rainy window, soft morning light, shallow depth of field"
+        },
+        "params": {
+          "prompt": "A ceramic coffee mug on a pale oak table by a rainy window, soft morning light, shallow depth of field"
+        },
+        "inputs": [],
+        "outputs": [
+          {
+            "id": "prompt",
+            "type": "TEXT",
+            "label": "Text",
+            "required": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "image",
+      "type": "basedNode",
+      "position": {
+        "x": 560,
+        "y": 0
+      },
+      "data": {
+        "label": "Flux Schnell",
+        "nodeType": "generate:flux_schnell",
+        "category": "generate",
+        "description": "Flux Schnell fast text-to-image",
+        "config": {
+          "num_images": 1,
+          "image_size": "landscape_4_3",
+          "output_format": "jpeg"
+        },
+        "params": {
+          "num_images": 1,
+          "image_size": "landscape_4_3",
+          "output_format": "jpeg"
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "reactflow__edge-promptout-prompt-imagein-prompt",
+      "source": "prompt",
+      "target": "image",
+      "sourceHandle": "out-prompt",
+      "targetHandle": "in-prompt",
+      "type": "default",
+      "data": {
+        "portType": "TEXT"
+      }
+    }
+  ]
+}

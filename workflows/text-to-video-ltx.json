@@ -1,0 +1,68 @@
+{
+  "name": "Recipe: text to video (LTX Video)",
+  "description": "Prompt in, one short LTX Video clip out. From github.com/wireflowINC recipe repos.",
+  "tags": [
+    "recipe",
+    "video"
+  ],
+  "nodes": [
+    {
+      "id": "prompt",
+      "type": "basedNode",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "data": {
+        "label": "Prompt",
+        "nodeType": "input:text",
+        "category": "input",
+        "description": "Describe the shot: subject, action, camera move, light.",
+        "config": {
+          "prompt": "Slow push-in on a paper boat drifting across a rain puddle at night, neon shop signs reflected in the water, gentle ripples, cinematic"
+        },
+        "params": {
+          "prompt": "Slow push-in on a paper boat drifting across a rain puddle at night, neon shop signs reflected in the water, gentle ripples, cinematic"
+        },
+        "inputs": [],
+        "outputs": [
+          {
+            "id": "prompt",
+            "type": "TEXT",
+            "label": "Text",
+            "required": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "video",
+      "type": "basedNode",
+      "position": {
+        "x": 560,
+        "y": 0
+      },
+      "data": {
+        "label": "LTX Video",
+        "nodeType": "video:ltx_video",
+        "category": "video",
+        "description": "LTX Video text-to-video",
+        "config": {},
+        "params": {}
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "reactflow__edge-promptout-prompt-videoin-prompt",
+      "source": "prompt",
+      "target": "video",
+      "sourceHandle": "out-prompt",
+      "targetHandle": "in-prompt",
+      "type": "default",
+      "data": {
+        "portType": "TEXT"
+      }
+    }
+  ]
+}

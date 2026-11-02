@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "wireflow": {
+      "type": "streamableHttp",
+      "url": "https://www.wireflow.ai/api/mcp",
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
